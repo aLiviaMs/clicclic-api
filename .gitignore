@@ -5,7 +5,7 @@
 *.pem
 credentials
 
-# --- Build do Maven ---
+# --- Maven build ---
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
@@ -17,7 +17,7 @@ target/
 .classpath
 .project
 
-# --- SO ---
+# --- OS ---
 .DS_Store
 
 # --- Logs ---
