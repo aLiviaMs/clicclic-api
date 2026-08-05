@@ -1,0 +1,13 @@
+# Without this, `COPY . .`-style instructions would drag your local build
+# output, IDE config, and secrets into the Docker build context — bloating
+# the image and, in the worst case, baking a .env file into a shipped layer.
+target/
+.git/
+.idea/
+*.iml
+.vscode/
+.env
+.env.*
+!.env.example
+*.md
+docs/

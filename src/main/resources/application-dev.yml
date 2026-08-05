@@ -1,0 +1,13 @@
+# Active when running locally against the docker-compose Postgres.
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/clicclic}
+    username: ${DB_USER:clicclic}
+    password: ${DB_PASSWORD:clicclic}
+
+# Full stack traces and SQL logging are fine on your own machine,
+# but would leak internals if left on in production.
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG

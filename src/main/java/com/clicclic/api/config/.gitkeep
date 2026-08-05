@@ -1,0 +1,2 @@
+# Spring @Configuration / @Bean classes — e.g. the S3Presigner bean (Phase 4)
+# or the SecurityFilterChain (Phase 2). Framework wiring, not business logic.

@@ -1,0 +1,13 @@
+# Active in production. No defaults here on purpose: if one of these
+# environment variables is missing, the app should fail to start rather
+# than silently fall back to a localhost value that doesn't exist in prod.
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+logging:
+  level:
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN

@@ -1,0 +1,2 @@
+# REST controllers — the only layer that knows about HTTP
+# (status codes, headers, request/response bodies).

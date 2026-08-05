@@ -1,0 +1,2 @@
+# Request/response objects for the API — separate from JPA entities
+# so we control exactly what gets exposed in JSON (e.g. never passwordHash).

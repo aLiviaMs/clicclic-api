@@ -1,0 +1,2 @@
+# Spring Data JPA repository interfaces (e.g. UserRepository) —
+# the only layer that talks directly to the database.

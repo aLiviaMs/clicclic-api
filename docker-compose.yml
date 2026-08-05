@@ -1,0 +1,40 @@
+# Local development environment. Run with: docker compose up -d
+# Tears down with: docker compose down (add -v to also wipe the database data).
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: clicclic-postgres
+    environment:
+      POSTGRES_DB: clicclic
+      POSTGRES_USER: clicclic
+      POSTGRES_PASSWORD: clicclic
+    ports:
+      # host:container — lets you connect from your machine (or pgAdmin
+      # below) at localhost:5432, exactly what application-dev.yml expects.
+      - "5432:5432"
+    volumes:
+      # Named volume: data survives `docker compose down` and container
+      # restarts. Without this, every restart would start from an empty DB.
+      - clicclic_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U clicclic"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: clicclic-pgadmin
+    environment:
+      # pgAdmin validates this as a real-looking email; .local domains get
+      # rejected. example.com is the domain reserved by IANA for exactly
+      # this kind of documentation/example use.
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  clicclic_pg_data:

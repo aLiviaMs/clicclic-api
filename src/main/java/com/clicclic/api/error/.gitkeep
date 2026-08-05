@@ -1,0 +1,2 @@
+# Centralized error handling (@RestControllerAdvice) — turns exceptions
+# into consistent JSON error responses instead of leaking stack traces.

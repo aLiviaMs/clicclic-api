@@ -1,0 +1,26 @@
+# Settings common to every environment. Profile-specific files
+# (application-dev.yml, application-prod.yml) override or add to this.
+spring:
+  application:
+    name: clicclic-api
+  jpa:
+    # Flyway owns the schema (see db/migration/*.sql). If Hibernate were
+    # also allowed to auto-create/alter tables ("update" or "create"),
+    # we'd have two systems fighting over the same schema. "none" means
+    # Hibernate only reads the schema Flyway already built — never writes it.
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  flyway:
+    enabled: true
+
+# Actuator exposes /actuator/health so we (and later, a load balancer
+# or container orchestrator) can ask "is this instance alive?".
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never

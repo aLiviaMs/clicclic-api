@@ -1,0 +1,2 @@
+# Business rules live here (e.g. "only the album owner can delete it").
+# Controllers call services; services call repositories. Never the reverse.
